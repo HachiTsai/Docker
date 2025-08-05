@@ -1,6 +1,6 @@
 # DOCKER跨平台架構與鏡像建構流程圖
 
-
+```mermaid
 flowchart TD
   A[📁 建立本地 Git Repo: Docker] --> B[✏️ 撰寫 Dockerfile <br> requirements.txt]
   B --> C[🔧 建立 Buildx builder: my-builder]
@@ -12,7 +12,7 @@ flowchart TD
   F1 & F2 --> G[🧪 測試 docker run 本地執行]
   G --> H[🔐 登入 Docker Hub]
   H --> I[🚀 推送 Image 至 hachitsai/mylab1]
-
+```
 
 
 # 技術建構流程摘要
