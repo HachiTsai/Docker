@@ -64,3 +64,4 @@
 #*.log
 #.env
 
+#docker images remove ---刪除鏡像
