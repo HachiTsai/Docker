@@ -2,3 +2,6 @@ numpy
 pandas
 flask
 matplotlib
+sqlite3
+scikit-learn
+mermaid
