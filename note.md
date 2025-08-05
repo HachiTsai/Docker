@@ -1,7 +1,6 @@
 # DOCKER跨平台架構與鏡像建構流程圖
 
 ```mermaid
-
 graph TD
   A[📁 建立本地 Git Repo: Docker] --> B[✏️ 撰寫 Dockerfile <br> requirements.txt]
   B --> C[🔧 建立 Buildx builder: my-builder]
