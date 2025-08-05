@@ -1,5 +1,5 @@
 # Dockerfile
-FROM python:3.11
+FROM python:3.12-slim
 
 # 設定工作目錄
 WORKDIR /app
