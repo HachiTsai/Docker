@@ -4,64 +4,39 @@
 
 ---
 
-## 🧱 建立本機專案
+## ID對應指令
 
-```bash
-#mkdir my-python-app
-#cd my-python-app
-#git init
-
-# app.py
-# print("Hello from Docker!")
-
-# requirements.txt
-#numpy
-#pandas
-#flask
-#matplotlib
-
-
-# 建立 Dockerfile：
+| 節點 | 指令 |用途 |
+|------|--------------------------------------------------|-------------------|
+| Dockerfile    | `備註*1`        |建立dockerfile |
+| requirements.txt    | `備註*2`        |需要pip install的項目 |
+| A    | `docker buildx create --name multi-builder --use` | 建builder(buildx才可以跨平台)|
+| B    | `docker buildx inspect --bootstrap`              |執行|
+| C    | `docker buildx build --platform ...`             | |
+| E    | `--load`                                          | |
+| F    | `docker run --rm filename:version`           | 刪除IMAGE|
+| G    | `docker pull hachitsai/filename:version`           | 🔁 在其他機器拉取並執行|
+| H    | `docker buildx ls`                    |🧭定期檢查 |
+| I    | `docker buildx rm my-builder`        |🗑️ 刪除指定 builder |
+| J    | `備註*3`           | 建立IMAGE|
 
 
-# -Dockerfile
-#FROM python:3.12-slim
-#WORKDIR /app
-#COPY requirements.txt .
-#RUN pip install -r requirements.txt
-#COPY . .
-#CMD ["python", "app.py"]
-
-# bash 建立
-# docker build -t my-python-app .
-
-#測試 docker run
-
-# 映像重新標記並推送
-#docker tag my-python-app hachitsai/my-python-app:v1
-#docker push hachitsai/my-python-app:v1
-
-###💥 常見錯誤排除
-#❌ 錯誤訊息：push access denied, repository does not exist or may require authorization
-#排解方式：
-
-#使用正確的帳號命名（你的帳號/專案名稱:tag）
-
-#Docker Hub 上建立對應的 repository（非自動建立）
-
-#確保已正確登入帳號 (docker login)
-
-#確認使用的是你的帳號：docker info | grep Username
-
-
-##🔁 在其他機器拉取並執行
-#docker pull hachitsai/my-python-app:v1
-#docker run --rm hachitsai/my-python-app:v1
-
-#📄 建議搭配 .dockerignore
-#__pycache__/
-#.git
-#*.log
-#.env
-
-#docker images remove ---刪除鏡像
+## 備註區
+### *1
+FROM python:3.12-slim  
+WORKDIR /app  
+COPY . .  
+RUN pip install --no-cache-dir -r requirements.txt  
+CMD ["python", "main.py"]  
+### *2
+numpy==1.26.4  
+pandas==2.2.2  
+flask==3.0.3  
+matplotlib==3.8.4  
+scikit-learn==1.4.2  
+tensorflow==2.15.0  
+### *3
+cd Docker  
+docker buildx build --platform linux/amd64,linux/arm64 \  
+  -t hachitsai/mylab1:tag \  
+  --push .  
