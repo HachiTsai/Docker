@@ -1,0 +1,4 @@
+-- 查詢 product 資料表中價格大於 100 的商品
+SELECT name, price
+FROM product
+WHERE price > 100;
