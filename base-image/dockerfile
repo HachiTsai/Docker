@@ -1,0 +1,17 @@
+# 使用官方 Miniconda 映像作為基礎
+FROM continuumio/miniconda3
+
+# 設定工作目錄
+WORKDIR /opt/env
+
+# 複製 Conda 環境設定檔
+COPY myenv.yml .
+
+# 建立 Conda 環境
+RUN conda env create -f myenv.yml || cat /opt/conda/pkgs/.conda-build.log
+
+# 啟用環境（設定 PATH）
+ENV PATH=/opt/conda/envs/myenv/bin:$PATH
+
+# 預設進入 shell（可選）
+CMD ["bash"]

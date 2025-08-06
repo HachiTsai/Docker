@@ -1,0 +1,19 @@
+name: myenv
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - jupyter
+  - mkdocs
+  - mkdocs-material
+  - pip
+  - pip:
+      - flask==2.3.3
+      - gunicorn==21.2.0
+      - rich==14.1.0
+      - mkdocs-jupyter==0.25.1
+      - mkdocs-mermaid2-plugin==1.2.1
