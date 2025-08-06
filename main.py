@@ -1,11 +1,7 @@
-# main.py
 from flask import Flask
+
 app = Flask(__name__)
 
 @app.route("/")
-def home():
-    return "Hello from MLab!"
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
-# Dockerfile
+def hello():
+    return "Hello from Flask + Gunicorn!"

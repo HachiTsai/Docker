@@ -60,3 +60,11 @@ docker buildx build --platform linux/amd64,linux/arm64 \
   -t hachitsai/mylab1:tag \  
   --push .  
 
+
+# MyLab1: Flask + Gunicorn + Docker
+
+## 快速啟動
+
+```bash
+docker build -t hachitsai/mylab1:1.2 .
+docker run -it -p 5000:80 hachitsai/mylab1:1.2
