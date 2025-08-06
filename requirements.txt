@@ -16,5 +16,7 @@ mkdocs-mermaid2-plugin
 pymdown-extensions
 jsonschema
 traitlets
+
 flask==2.3.3
 gunicorn==21.2.0
+
