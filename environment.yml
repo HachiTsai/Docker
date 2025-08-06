@@ -1,0 +1,30 @@
+name: myenv
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - flask
+  - jupyter
+  - ipykernel
+  - mkdocs
+  - pip
+  - pip:
+      - mkdocs-material==9.6.16
+      - mkdocs-mermaid2-plugin
+      - mkdocs-jupyter
+      - requests
+      - httpx
+      - markdown-it-py
+      - jupyterlab
+      - jupytext
+      - ghp-import
+      - watchdog
+      - jsonschema
+      - traitlets
+      - rich
+      - pymdown-extensions
