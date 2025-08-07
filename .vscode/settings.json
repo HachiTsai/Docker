@@ -1,7 +1,23 @@
 {
     "cSpell.words": [
+        "bierner",
+        "continuumio",
+        "gunicorn",
+        "hachitsai",
+        "httpx",
+        "jsonschema",
+        "jupyterlab",
+        "jupytext",
+        "matplotlib",
+        "mkdocs",
+        "myenv",
         "mylab",
+        "numpy",
+        "pkgs",
+        "pymdown",
+        "scikit",
         "toolsai",
-        "hachitsai"
+        "traitlets",
+        "yzhang"
     ]
 }
