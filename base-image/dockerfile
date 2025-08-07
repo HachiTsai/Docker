@@ -1,17 +1,31 @@
-# 使用官方 Miniconda 映像作為基礎
 FROM continuumio/miniconda3
 
-# 設定工作目錄
 WORKDIR /opt/env
-
-# 複製 Conda 環境設定檔
 COPY myenv.yml .
 
 # 建立 Conda 環境
 RUN conda env create -f myenv.yml || cat /opt/conda/pkgs/.conda-build.log
 
-# 啟用環境（設定 PATH）
+# 設定 PATH
 ENV PATH=/opt/conda/envs/myenv/bin:$PATH
 
-# 預設進入 shell（可選）
+# 安裝工具
+RUN conda install -n myenv -c conda-forge \
+    notebook \
+    jupyterlab \
+    ipykernel \
+    matplotlib \
+    pandas \
+    seaborn \
+    plotly \
+    mkdocs \
+    mkdocs-material \
+    pip \
+    && conda run -n myenv pip install mkdocs-mermaid2-plugin pymdown-extensions \
+    && apt update && apt install -y nodejs npm \
+    && npm install -g @mermaid-js/mermaid-cli \
+    && conda run -n myenv pip install git+https://github.com/QuantStack/mermaid-kernel.git \
+    && conda run -n myenv python -m mermaid_kernel.install
+
+EXPOSE 8888
 CMD ["bash"]

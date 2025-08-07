@@ -22,5 +22,6 @@
       ]
     }
   },
-  "postCreateCommand": "echo 'Conda environment ready: myenv'"
+   "forwardPorts": [8888],
+  "postCreateCommand": "conda run -n myenv python -m ipykernel install --user"
 }
