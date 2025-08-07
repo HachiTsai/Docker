@@ -24,8 +24,6 @@ RUN conda install -n myenv -c conda-forge \
     && conda run -n myenv pip install mkdocs-mermaid2-plugin pymdown-extensions \
     && apt update && apt install -y nodejs npm \
     && npm install -g @mermaid-js/mermaid-cli \
-    && conda run -n myenv pip install git+https://github.com/QuantStack/mermaid-kernel.git \
-    && conda run -n myenv python -m mermaid_kernel.install
 
 EXPOSE 8888
 CMD ["bash"]
